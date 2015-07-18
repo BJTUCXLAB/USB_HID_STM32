@@ -25,6 +25,8 @@
 #include "blooth.h"
 #include "adc.h"
 #include "keyscan.h"
+#include "exti.h"
+
 #define CELL_COUNT 40
 
 /* Private typedef -----------------------------------------------------------*/
@@ -60,7 +62,7 @@ int main(void)
 	USB_Init();
 	OLED_Init();			//初始化OLED     
 	ADC1_Init();      //初始化ADC1
-	
+	//EXTI_PD2_Config(); //KEY外部中断检测
 	while(1)
 	{
 		if(USB_Received_Flag){

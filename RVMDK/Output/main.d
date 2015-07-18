@@ -49,3 +49,4 @@
 .\Output\main.o: ..\User\blooth.h
 .\Output\main.o: ..\User\adc.h
 .\Output\main.o: ..\User\keyscan.h
+.\Output\main.o: ..\User\exti.h

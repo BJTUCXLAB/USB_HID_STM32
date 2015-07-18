@@ -1,4 +1,4 @@
-;#<FEEDBACK># ARM Linker, 4.1 [Build 894]: Last Updated: Sat Jul 18 23:19:36 2015
+;#<FEEDBACK># ARM Linker, 4.1 [Build 894]: Last Updated: Sat Jul 18 23:56:59 2015
 ;VERSION 0.2
 ;FILE 51gp.o
 GP_Config <= USED 0
@@ -21,6 +21,8 @@ __set_PSP <= USED 0
 ;FILE delay.o
 delay_init <= USED 0
 delay_us <= USED 0
+;FILE exti.o
+EXTI_PD2_Config <= USED 0
 ;FILE hw_config.o
 GPIO_AINConfig <= USED 0
 ;FILE keyscan.o
