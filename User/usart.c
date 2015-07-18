@@ -30,6 +30,14 @@
 #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
 #endif /* __GNUC__ */
 
+// //重定向c库函数scanf到USART1 YQL
+int fgetc(FILE *f)
+{
+		/* 等待串口1输入数据 */
+		while (USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == RESET);
+
+		return (int)USART_ReceiveData(USART1);
+}
 
 /**
   * @brief  开启GPIOA,串口1时钟 

@@ -1,9 +1,9 @@
 .\Output\usart.o: ..\User\usart.c
 .\Output\usart.o: ..\User\usart.h
-.\Output\usart.o: D:\Keil\ARM\RV31\Inc\stdio.h
+.\Output\usart.o: C:\stm32\ARM\RV31\Inc\stdio.h
 .\Output\usart.o: ..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\Output\usart.o: ..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h
-.\Output\usart.o: D:\Keil\ARM\RV31\Inc\stdint.h
+.\Output\usart.o: C:\stm32\ARM\RV31\Inc\stdint.h
 .\Output\usart.o: ..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h
 .\Output\usart.o: ..\User\stm32f10x_conf.h
 .\Output\usart.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h

@@ -4,7 +4,7 @@
 .\Output\main.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h
 .\Output\main.o: ..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\Output\main.o: ..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h
-.\Output\main.o: D:\Keil\ARM\RV31\Inc\stdint.h
+.\Output\main.o: C:\stm32\ARM\RV31\Inc\stdint.h
 .\Output\main.o: ..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h
 .\Output\main.o: ..\User\stm32f10x_conf.h
 .\Output\main.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h
@@ -30,7 +30,7 @@
 .\Output\main.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\Output\main.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\Output\main.o: ..\User\usart.h
-.\Output\main.o: D:\Keil\ARM\RV31\Inc\stdio.h
+.\Output\main.o: C:\stm32\ARM\RV31\Inc\stdio.h
 .\Output\main.o: ..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_lib.h
 .\Output\main.o: ..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_type.h
 .\Output\main.o: ..\User\USB\inc\usb_conf.h
@@ -43,3 +43,7 @@
 .\Output\main.o: ..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_sil.h
 .\Output\main.o: ..\User\USB\inc\hw_config.h
 .\Output\main.o: ..\User\usbio.h
+.\Output\main.o: ..\User\oled.h
+.\Output\main.o: C:\stm32\ARM\RV31\Inc\stdlib.h
+.\Output\main.o: ..\User\51GP.h
+.\Output\main.o: ..\User\blooth.h

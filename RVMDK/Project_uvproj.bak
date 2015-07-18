@@ -61,6 +61,8 @@
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
+            <nStopU1X>0</nStopU1X>
+            <nStopU2X>0</nStopU2X>
           </BeforeCompile>
           <BeforeMake>
             <RunUserProg1>0</RunUserProg1>
@@ -693,6 +695,26 @@
               <FileName>usbio.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\usbio.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\oled.c</FilePath>
+            </File>
+            <File>
+              <FileName>delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\delay.c</FilePath>
+            </File>
+            <File>
+              <FileName>51GP.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\51GP.c</FilePath>
+            </File>
+            <File>
+              <FileName>blooth.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\blooth.c</FilePath>
             </File>
           </Files>
         </Group>

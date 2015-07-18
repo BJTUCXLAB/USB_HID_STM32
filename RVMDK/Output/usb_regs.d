@@ -2,7 +2,7 @@
 .\Output\usb_regs.o: ..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_lib.h
 .\Output\usb_regs.o: ..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\Output\usb_regs.o: ..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h
-.\Output\usb_regs.o: D:\Keil\ARM\RV31\Inc\stdint.h
+.\Output\usb_regs.o: C:\stm32\ARM\RV31\Inc\stdint.h
 .\Output\usb_regs.o: ..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h
 .\Output\usb_regs.o: ..\User\stm32f10x_conf.h
 .\Output\usb_regs.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h

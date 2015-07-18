@@ -2,7 +2,7 @@
 .\Output\misc.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\Output\misc.o: ..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\Output\misc.o: ..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h
-.\Output\misc.o: D:\Keil\ARM\RV31\Inc\stdint.h
+.\Output\misc.o: C:\stm32\ARM\RV31\Inc\stdint.h
 .\Output\misc.o: ..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h
 .\Output\misc.o: ..\User\stm32f10x_conf.h
 .\Output\misc.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h

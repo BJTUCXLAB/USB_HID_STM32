@@ -20,6 +20,9 @@
 #include "usb_lib.h"
 #include "hw_config.h"
 #include "usbio.h"
+#include "oled.h"
+#include "51GP.h"
+#include "blooth.h"
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
@@ -51,7 +54,8 @@ int main(void)
 	USB_Interrupts_Config();
 	Set_USBClock();
 	USB_Init();
-
+	OLED_Init();			//初始化OLED     
+	
 	while(1)
 	{
 		if(USB_Received_Flag){
@@ -63,6 +67,13 @@ int main(void)
 			}
 			printf("\n\r");
 			USB_SendData(data,sizeof(data));
+			/*****************OLED显示*******************/
+		  //OLED_ShowString(0,0, "0.96' OLED TEST");  //字符串显示
+			//	OLED_ShowChar(48,48,t,16,1);//显示ASCII字符	 
+			//	OLED_ShowNum(103,48,t,3,16);//显示ASCII字符的码值 
+			//OLED_Refresh_Gram();	 //刷新
+			// delayms(xx);
+			
 		}
 	}
 }
