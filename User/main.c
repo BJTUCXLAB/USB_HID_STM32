@@ -23,6 +23,10 @@
 #include "oled.h"
 #include "51GP.h"
 #include "blooth.h"
+#include "adc.h"
+#include "keyscan.h"
+#define CELL_COUNT 40
+
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
@@ -38,7 +42,7 @@ extern uint8_t USB_Received_Flag;
   */
 int main(void)
 {
-	uint8_t data[64];
+	uint8_t data[64],BrailleDots[40],InPacket[2];
 	uint32_t i=0,ret=0;
 	Set_System();//系统时钟初始化
 	USART_Configuration();//串口1初始化
@@ -55,12 +59,27 @@ int main(void)
 	Set_USBClock();
 	USB_Init();
 	OLED_Init();			//初始化OLED     
+	ADC1_Init();      //初始化ADC1
 	
 	while(1)
 	{
 		if(USB_Received_Flag){
 			USB_Received_Flag=0;
 			ret = USB_GetData(data,sizeof(data));
+			//
+			switch(data[0])
+			{
+				case 0x80:
+				  for(i=0;i<CELL_COUNT;i++)
+				  {BrailleDots[i]=data[i+1];}
+					break;
+				case 0x81:
+				  InPacket[0]=0x81;
+				  InPacket[1]=GetKey();
+				  break;
+				default:
+					break;
+      }
 			printf("usb get data %d byte data\n\r",ret);
 			for(i=0;i<ret;i++){
 				printf("0x%02X ",data[i]);
@@ -73,6 +92,9 @@ int main(void)
 			//	OLED_ShowNum(103,48,t,3,16);//显示ASCII字符的码值 
 			//OLED_Refresh_Gram();	 //刷新
 			// delayms(xx);
+			/***************电池电压检测******************/
+			//ADC_ConvertedValueLocal =(float) ADC_ConvertedValue/4096*3.3; // 读取转换的AD值
+			//**************按键外部中断触发**************/
 			
 		}
 	}

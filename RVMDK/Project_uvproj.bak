@@ -706,16 +706,6 @@
               <FileType>1</FileType>
               <FilePath>..\User\delay.c</FilePath>
             </File>
-            <File>
-              <FileName>51GP.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\51GP.c</FilePath>
-            </File>
-            <File>
-              <FileName>blooth.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\blooth.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -735,6 +725,21 @@
               <FileName>usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>blooth.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\blooth.c</FilePath>
+            </File>
+            <File>
+              <FileName>51GP.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\51GP.c</FilePath>
+            </File>
+            <File>
+              <FileName>PowerControl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\PowerControl.c</FilePath>
             </File>
           </Files>
         </Group>

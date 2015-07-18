@@ -736,6 +736,21 @@
               <FileType>1</FileType>
               <FilePath>..\User\51GP.c</FilePath>
             </File>
+            <File>
+              <FileName>PowerControl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\PowerControl.c</FilePath>
+            </File>
+            <File>
+              <FileName>adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>keyscan.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\keyscan.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

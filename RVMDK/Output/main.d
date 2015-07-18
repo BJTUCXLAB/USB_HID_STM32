@@ -47,3 +47,5 @@
 .\Output\main.o: C:\stm32\ARM\RV31\Inc\stdlib.h
 .\Output\main.o: ..\User\51GP.h
 .\Output\main.o: ..\User\blooth.h
+.\Output\main.o: ..\User\adc.h
+.\Output\main.o: ..\User\keyscan.h
