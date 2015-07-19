@@ -1,4 +1,4 @@
-;#<FEEDBACK># ARM Linker, 4.1 [Build 894]: Last Updated: Sat Jul 18 23:56:59 2015
+;#<FEEDBACK># ARM Linker, 4.1 [Build 894]: Last Updated: Sun Jul 19 10:02:24 2015
 ;VERSION 0.2
 ;FILE 51gp.o
 GP_Config <= USED 0
@@ -20,25 +20,32 @@ __set_MSP <= USED 0
 __set_PSP <= USED 0
 ;FILE delay.o
 delay_init <= USED 0
+delay_ms <= USED 0
 delay_us <= USED 0
 ;FILE exti.o
-EXTI_PD2_Config <= USED 0
 ;FILE hw_config.o
 GPIO_AINConfig <= USED 0
 ;FILE keyscan.o
+GetKey <= USED 0
 ;FILE main.o
+EXTI2_IRQHandle <= USED 0
+EXTI3_IRQHandle <= USED 0
 ;FILE misc.o
 NVIC_SetVectorTable <= USED 0
 NVIC_SystemLPConfig <= USED 0
 SysTick_CLKSourceConfig <= USED 0
 ;FILE oled.o
+OLED_Clear <= USED 0
 OLED_Display_Off <= USED 0
 OLED_Display_On <= USED 0
 OLED_DrawPoint <= USED 0
 OLED_Fill <= USED 0
+OLED_Init <= USED 0
+OLED_Refresh_Gram <= USED 0
 OLED_ShowChar <= USED 0
 OLED_ShowNum <= USED 0
 OLED_ShowString <= USED 0
+OLED_WR_Byte <= USED 0
 oled_pow <= USED 0
 ;FILE powercontrol.o
 BatteryC_vol <= USED 0
@@ -174,7 +181,6 @@ EXTI_DeInit <= USED 0
 EXTI_GenerateSWInterrupt <= USED 0
 EXTI_GetFlagStatus <= USED 0
 EXTI_GetITStatus <= USED 0
-EXTI_Init <= USED 0
 EXTI_StructInit <= USED 0
 ;FILE stm32f10x_flash.o
 FLASH_ClearFlag <= USED 0
@@ -227,7 +233,6 @@ FSMC_PCCARDStructInit <= USED 0
 GPIO_AFIODeInit <= USED 0
 GPIO_DeInit <= USED 0
 GPIO_ETH_MediaInterfaceConfig <= USED 0
-GPIO_EXTILineConfig <= USED 0
 GPIO_EventOutputCmd <= USED 0
 GPIO_EventOutputConfig <= USED 0
 GPIO_PinLockConfig <= USED 0

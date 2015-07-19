@@ -29,6 +29,7 @@
 
 #define CELL_COUNT 40
 
+uint8_t GetKeynum;
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
@@ -37,6 +38,12 @@ extern uint8_t USB_Received_Flag;
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 
+// ADC1转换的电压值通过MDA方式传到SRAM
+extern __IO uint16_t ADC_ConvertedValue;
+
+// 局部变量，用于保存转换计算后的电压值			 
+
+float ADC_ConvertedValueLocal;  
 /**
   * @brief  串口打印输出
   * @param  None
@@ -48,21 +55,31 @@ int main(void)
 	uint32_t i=0,ret=0;
 	Set_System();//系统时钟初始化
 	USART_Configuration();//串口1初始化
-	printf("\x0c\0");printf("\x0c\0");//超级终端清屏
-	printf("\033[1;40;32m");//设置超级终端背景为黑色，字符为绿色
+	//printf("\x0c\0");printf("\x0c\0");//超级终端清屏
+	//printf("\033[1;40;32m");//设置超级终端背景为黑色，字符为绿色
 	printf("\r\n*******************************************************************************");
 	printf("\r\n************************ Copyright 2009-2012, ViewTool ************************");
 	printf("\r\n*************************** http://www.viewtool.com ***************************");
 	printf("\r\n***************************** All Rights Reserved *****************************");
 	printf("\r\n*******************************************************************************");
+	
 	printf("\r\n");
+/***************电池电压检测******************/
+   	ADC_ConvertedValueLocal =(float) ADC_ConvertedValue/4096*3.3; // 读取转换的AD值、
+			printf("\r\n The current AD value = 0x%04X \r\n", ADC_ConvertedValue); 
+	   	printf("\r\n The current AD value = %f V \r\n",ADC_ConvertedValueLocal); 
 
+	                             
+			ADC_ConvertedValueLocal =(float) ADC_ConvertedValue/4096*3.3; // 读取转换的AD值、
+			printf("\r\n The current AD value = 0x%04X \r\n", ADC_ConvertedValue); 
+	   	printf("\r\n The current AD value = %f V \r\n",ADC_ConvertedValueLocal); 
 	USB_Interrupts_Config();
 	Set_USBClock();
 	USB_Init();
-	OLED_Init();			//初始化OLED     
+	//OLED_Init();			//初始化OLED     
 	ADC1_Init();      //初始化ADC1
-	//EXTI_PD2_Config(); //KEY外部中断检测
+	EXTI_PD2_Config(); //KEY外部中断检测
+	
 	while(1)
 	{
 		if(USB_Received_Flag){
@@ -77,7 +94,7 @@ int main(void)
 					break;
 				case 0x81:
 				  InPacket[0]=0x81;
-				  InPacket[1]=GetKey();
+				  InPacket[1]=GetKeynum;
 				  break;
 				default:
 					break;
@@ -88,18 +105,30 @@ int main(void)
 			}
 			printf("\n\r");
 			USB_SendData(data,sizeof(data));
-			/*****************OLED显示*******************/
+		}
+		
+			
+		
+		/*****************OLED显示*******************/
 		  //OLED_ShowString(0,0, "0.96' OLED TEST");  //字符串显示
 			//	OLED_ShowChar(48,48,t,16,1);//显示ASCII字符	 
 			//	OLED_ShowNum(103,48,t,3,16);//显示ASCII字符的码值 
 			//OLED_Refresh_Gram();	 //刷新
-			// delayms(xx);
-			/***************电池电压检测******************/
-			//ADC_ConvertedValueLocal =(float) ADC_ConvertedValue/4096*3.3; // 读取转换的AD值
-			//**************按键外部中断触发**************/
 			
-		}
+			
+			//**************按键外部中断触发**************/
+			/*****************复位*********************/
+		 
 	}
+}
+void EXTI2_IRQHandle(void)
+{
+	GetKeynum=GetKey();
+	
+}
+void EXTI3_IRQHandle(void)
+{
+	printf("/r/n电压检测成功");
 }
 
 #ifdef  USE_FULL_ASSERT
