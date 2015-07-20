@@ -1,5 +1,6 @@
 .\Output\oled.o: ..\User\oled.c
 .\Output\oled.o: ..\User\oled.h
+.\Output\oled.o: ..\User\sys.h
 .\Output\oled.o: ..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\Output\oled.o: ..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h
 .\Output\oled.o: C:\stm32\ARM\RV31\Inc\stdint.h

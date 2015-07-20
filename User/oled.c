@@ -205,35 +205,24 @@ void OLED_Init(void)
  
  	GPIO_InitTypeDef  GPIO_InitStructure;
  	
- 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC|RCC_APB2Periph_GPIOD|RCC_APB2Periph_GPIOG, ENABLE);	 //使能PC,D,G端口时钟
+ 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);	 //使能PC,D,G端口时钟
 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3|GPIO_Pin_6;	 //PD3,PD6推挽输出  
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0|GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_8;	 //PD3,PD6推挽输出  
  	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;//速度50MHz
- 	GPIO_Init(GPIOD, &GPIO_InitStructure);	  //初始化GPIOD3,6
- 	GPIO_SetBits(GPIOD,GPIO_Pin_3|GPIO_Pin_6);	//PD3,PD6 输出高
-
- #if OLED_MODE==1
- 
- 	GPIO_InitStructure.GPIO_Pin =0xFF; //PC0~7 OUT推挽输出
- 	GPIO_Init(GPIOC, &GPIO_InitStructure);
- 	GPIO_SetBits(GPIOC,0xFF); //PC0~7输出高
-
- 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13|GPIO_Pin_14|GPIO_Pin_15;				 //PG13,14,15 OUT推挽输出
- 	GPIO_Init(GPIOG, &GPIO_InitStructure);
- 	GPIO_SetBits(GPIOG,GPIO_Pin_13|GPIO_Pin_14|GPIO_Pin_15);						 //PG13,14,15 OUT  输出高
-
- #else
- 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0|GPIO_Pin_1;				 //PC0,1 OUT推挽输出
- 	GPIO_Init(GPIOC, &GPIO_InitStructure);
- 	GPIO_SetBits(GPIOC,GPIO_Pin_0|GPIO_Pin_1);						 //PC0,1 OUT  输出高
-
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;				 //PG15 OUT推挽输出	  RST
- 	GPIO_Init(GPIOG, &GPIO_InitStructure);
- 	GPIO_SetBits(GPIOG,GPIO_Pin_15);						 //PG15 OUT  输出高
+ 	GPIO_Init(GPIOC, &GPIO_InitStructure);	  //初始化GPIOD3,6
+ 	GPIO_SetBits(GPIOC,GPIO_Pin_0|GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_8);	
 
 
- #endif
+
+// 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0|GPIO_Pin_1;				 //PC0,1 OUT推挽输出
+//  	GPIO_Init(GPIOC, &GPIO_InitStructure);
+//  	GPIO_SetBits(GPIOC,GPIO_Pin_0|GPIO_Pin_1);						 //PC0,1 OUT  输出高
+
+// 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;				 //PG15 OUT推挽输出	  RST
+//  	GPIO_Init(GPIOC, &GPIO_InitStructure);
+//  	GPIO_SetBits(GPIOC,GPIO_Pin_2);						 //PG15 OUT  输出高
+
   							  
 	OLED_RST_Clr();
 	delay_ms(100);

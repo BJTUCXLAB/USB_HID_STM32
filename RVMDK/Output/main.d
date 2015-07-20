@@ -44,9 +44,11 @@
 .\Output\main.o: ..\User\USB\inc\hw_config.h
 .\Output\main.o: ..\User\usbio.h
 .\Output\main.o: ..\User\oled.h
+.\Output\main.o: ..\User\sys.h
 .\Output\main.o: C:\stm32\ARM\RV31\Inc\stdlib.h
 .\Output\main.o: ..\User\51GP.h
 .\Output\main.o: ..\User\blooth.h
 .\Output\main.o: ..\User\adc.h
 .\Output\main.o: ..\User\keyscan.h
 .\Output\main.o: ..\User\exti.h
+.\Output\main.o: ..\User\PowerControl.h

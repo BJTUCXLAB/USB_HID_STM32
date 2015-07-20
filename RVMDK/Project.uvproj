@@ -696,16 +696,6 @@
               <FileType>1</FileType>
               <FilePath>..\User\usbio.c</FilePath>
             </File>
-            <File>
-              <FileName>oled.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\oled.c</FilePath>
-            </File>
-            <File>
-              <FileName>delay.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\delay.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -755,6 +745,21 @@
               <FileName>exti.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\exti.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\oled.c</FilePath>
+            </File>
+            <File>
+              <FileName>sys.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\sys.c</FilePath>
+            </File>
+            <File>
+              <FileName>delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\delay.c</FilePath>
             </File>
           </Files>
         </Group>

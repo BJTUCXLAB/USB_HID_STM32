@@ -26,6 +26,8 @@
 #include "adc.h"
 #include "keyscan.h"
 #include "exti.h"
+#include "PowerControl.h"
+//#include "delay.h"
 
 #define CELL_COUNT 40
 
@@ -44,6 +46,10 @@ extern __IO uint16_t ADC_ConvertedValue;
 // 局部变量，用于保存转换计算后的电压值			 
 
 float ADC_ConvertedValueLocal;  
+
+//#define    MI_ERR    (-2)
+
+void Delay(__IO u32 nCount);
 /**
   * @brief  串口打印输出
   * @param  None
@@ -54,6 +60,12 @@ int main(void)
 	uint8_t data[64],BrailleDots[40],InPacket[2];
 	uint32_t i=0,ret=0;
 	Set_System();//系统时钟初始化
+	power_initial(); //电源控制管脚初始化
+	Board_ON();//板载自锁供电
+	Blooth_Down();  //初始化关闭蓝牙
+	GP_Down();      //初始化关闭51单片机
+	IDrive_Down();  //初始化关闭恒流源
+	
 	USART_Configuration();//串口1初始化
 	//printf("\x0c\0");printf("\x0c\0");//超级终端清屏
 	//printf("\033[1;40;32m");//设置超级终端背景为黑色，字符为绿色
@@ -64,22 +76,15 @@ int main(void)
 	printf("\r\n*******************************************************************************");
 	
 	printf("\r\n");
-/***************电池电压检测******************/
-   	ADC_ConvertedValueLocal =(float) ADC_ConvertedValue/4096*3.3; // 读取转换的AD值、
-			printf("\r\n The current AD value = 0x%04X \r\n", ADC_ConvertedValue); 
-	   	printf("\r\n The current AD value = %f V \r\n",ADC_ConvertedValueLocal); 
 
-	                             
-			ADC_ConvertedValueLocal =(float) ADC_ConvertedValue/4096*3.3; // 读取转换的AD值、
-			printf("\r\n The current AD value = 0x%04X \r\n", ADC_ConvertedValue); 
-	   	printf("\r\n The current AD value = %f V \r\n",ADC_ConvertedValueLocal); 
-	USB_Interrupts_Config();
-	Set_USBClock();
 	USB_Init();
-	//OLED_Init();			//初始化OLED     
+	
+	OLED_Init();			//初始化OLED     
 	ADC1_Init();      //初始化ADC1
 	EXTI_PD2_Config(); //KEY外部中断检测
-	
+	EXTI_PD3_Config(); //关机检测
+
+		
 	while(1)
 	{
 		if(USB_Received_Flag){
@@ -107,16 +112,44 @@ int main(void)
 			USB_SendData(data,sizeof(data));
 		}
 		
-			
-		
 		/*****************OLED显示*******************/
-		  //OLED_ShowString(0,0, "0.96' OLED TEST");  //字符串显示
+		  OLED_ShowString(0,0, "0.96' OLED TEST");  //字符串显示
 			//	OLED_ShowChar(48,48,t,16,1);//显示ASCII字符	 
 			//	OLED_ShowNum(103,48,t,3,16);//显示ASCII字符的码值 
 			//OLED_Refresh_Gram();	 //刷新
+	for(i=0;i<5;i++)
+		{
+	/***************电池电压检测******************/
+   	ADC_ConvertedValueLocal =(float) ADC_ConvertedValue/4096*3.3; // 读取转换的AD值、
+			printf("\r\n The PC4 current AD value = 0x%04X \r\n", ADC_ConvertedValue); 
+	   	printf("\r\n The PC4 current AD value = %f V \r\n",ADC_ConvertedValueLocal); 
+
+	                             
+			ADC_ConvertedValueLocal =(float) ADC_ConvertedValue/4096*3.3; // 读取转换的AD值、
+			printf("\r\n The PC5 current AD value = 0x%04X \r\n", ADC_ConvertedValue); 
+	   	printf("\r\n The PC5 current AD value = %f V \r\n",ADC_ConvertedValueLocal); 
+/****************************************************************/		
+			IDrive_ON();
+		  printf("\r\nIC on");
+		  Delay(0x0FFFEF);
+		  Delay(0x0FFFEF);
+		  Delay(0x0FFFEF);
+		  Delay(0x0FFFEF);
+		  Delay(0x0FFFEF);
+		  Delay(0x0FFFEF);
+		  IDrive_Down();
 			
-			
-			//**************按键外部中断触发**************/
+		  printf("\r\nIC down");
+		  Delay(0x0FFFEF);
+		  Delay(0x0FFFEF);
+			Delay(0x0FFFEF);
+		  Delay(0x0FFFEF);
+		  Delay(0x0FFFEF);
+		  Delay(0x0FFFEF);	
+			GPIO_ResetBits(GPIOB,GPIO_Pin_13);
+		}
+		  Board_Down();
+		//**************按键外部中断触发**************/
 			/*****************复位*********************/
 		 
 	}
@@ -124,13 +157,17 @@ int main(void)
 void EXTI2_IRQHandle(void)
 {
 	GetKeynum=GetKey();
+	printf("/r/n按键检测");
 	
 }
 void EXTI3_IRQHandle(void)
 {
-	printf("/r/n电压检测成功");
+	printf("/r/n关机检测");
 }
-
+void Delay(__IO u32 nCount)	 //简单的延时函数
+{
+	for(; nCount != 0; nCount--);
+} 
 #ifdef  USE_FULL_ASSERT
 /**
   * @brief  报告在检查参数发生错误时的源文件名和错误行数

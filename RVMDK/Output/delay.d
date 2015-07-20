@@ -1,5 +1,6 @@
 .\Output\delay.o: ..\User\delay.c
 .\Output\delay.o: ..\User\delay.h
+.\Output\delay.o: ..\User\sys.h
 .\Output\delay.o: ..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\Output\delay.o: ..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h
 .\Output\delay.o: C:\stm32\ARM\RV31\Inc\stdint.h

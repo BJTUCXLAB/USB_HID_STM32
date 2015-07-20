@@ -1,4 +1,4 @@
-;#<FEEDBACK># ARM Linker, 4.1 [Build 894]: Last Updated: Sun Jul 19 10:02:24 2015
+;#<FEEDBACK># ARM Linker, 4.1 [Build 894]: Last Updated: Tue Jul 21 00:31:21 2015
 ;VERSION 0.2
 ;FILE 51gp.o
 GP_Config <= USED 0
@@ -20,14 +20,16 @@ __set_MSP <= USED 0
 __set_PSP <= USED 0
 ;FILE delay.o
 delay_init <= USED 0
-delay_ms <= USED 0
 delay_us <= USED 0
 ;FILE exti.o
 ;FILE hw_config.o
 GPIO_AINConfig <= USED 0
+Set_USBClock <= USED 0
+USB_Interrupts_Config <= USED 0
 ;FILE keyscan.o
 GetKey <= USED 0
 ;FILE main.o
+Delay <= USED 0
 EXTI2_IRQHandle <= USED 0
 EXTI3_IRQHandle <= USED 0
 ;FILE misc.o
@@ -35,30 +37,14 @@ NVIC_SetVectorTable <= USED 0
 NVIC_SystemLPConfig <= USED 0
 SysTick_CLKSourceConfig <= USED 0
 ;FILE oled.o
-OLED_Clear <= USED 0
 OLED_Display_Off <= USED 0
 OLED_Display_On <= USED 0
-OLED_DrawPoint <= USED 0
 OLED_Fill <= USED 0
-OLED_Init <= USED 0
-OLED_Refresh_Gram <= USED 0
-OLED_ShowChar <= USED 0
 OLED_ShowNum <= USED 0
-OLED_ShowString <= USED 0
-OLED_WR_Byte <= USED 0
 oled_pow <= USED 0
 ;FILE powercontrol.o
 BatteryC_vol <= USED 0
 BatteryD_vol <= USED 0
-Blooth_Down <= USED 0
-Blooth_ON <= USED 0
-Board_Down <= USED 0
-Board_ON <= USED 0
-GP_Down <= USED 0
-GP_ON <= USED 0
-IDrive_Down <= USED 0
-IDrive_ON <= USED 0
-power_initial <= USED 0
 ;FILE startup_stm32f10x_hd.o
 ;FILE stm32f10x_adc.o
 ADC_AnalogWatchdogCmd <= USED 0
@@ -313,6 +299,7 @@ RCC_LSICmd <= USED 0
 RCC_MCOConfig <= USED 0
 RCC_RTCCLKCmd <= USED 0
 RCC_RTCCLKConfig <= USED 0
+RCC_USBCLKConfig <= USED 0
 ;FILE stm32f10x_rtc.o
 RTC_ClearFlag <= USED 0
 RTC_ClearITPendingBit <= USED 0
@@ -506,6 +493,8 @@ WWDG_GetFlagStatus <= USED 0
 WWDG_SetCounter <= USED 0
 WWDG_SetPrescaler <= USED 0
 WWDG_SetWindowValue <= USED 0
+;FILE sys.o
+NVIC_Configuration <= USED 0
 ;FILE system_stm32f10x.o
 SystemCoreClockUpdate <= USED 0
 ;FILE usart.o
