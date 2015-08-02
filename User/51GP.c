@@ -15,8 +15,8 @@ void GP_Config(void)
 	USART_InitTypeDef USART_InitStructure;
 
 	/* config USART3 clock */
-	RCC_APB2PeriphClockCmd(RCC_APB1Periph_USART3 | RCC_APB2Periph_GPIOB, ENABLE);//等待修改
-
+	RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOB, ENABLE);//等待修改
+  RCC_APB1PeriphClockCmd( RCC_APB1Periph_USART3, ENABLE);
 	/* USART3 GPIO config */
    /* Configure USART3 Tx (PB.10) as alternate function push-pull */
   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
@@ -29,7 +29,7 @@ void GP_Config(void)
   GPIO_Init(GPIOB, &GPIO_InitStructure);
 	  
 	/* USART3 mode config */
-	USART_InitStructure.USART_BaudRate = 115200;
+	USART_InitStructure.USART_BaudRate = 57600;
 	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
 	USART_InitStructure.USART_StopBits = USART_StopBits_1;
 	USART_InitStructure.USART_Parity = USART_Parity_No ;

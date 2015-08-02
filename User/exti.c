@@ -16,11 +16,18 @@ static void NVIC_Configuration(void)
   NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
   
   /* 配置P[A|B|C|D|E]2为中断源 */
-  NVIC_InitStructure.NVIC_IRQChannel = EXTI2_IRQn|EXTI3_IRQn;
+  NVIC_InitStructure.NVIC_IRQChannel =EXTI3_IRQn;
   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
   NVIC_Init(&NVIC_InitStructure);
+	
+	 NVIC_InitStructure.NVIC_IRQChannel =EXTI15_10_IRQn;
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&NVIC_InitStructure);
+	
 }
 
 
@@ -38,19 +45,19 @@ void EXTI_PD2_Config(void)
 	EXTI_InitTypeDef EXTI_InitStructure;
 
 	/* config the extiline(PD2) clock and AFIO clock */
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD | RCC_APB2Periph_AFIO,ENABLE);
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOE | RCC_APB2Periph_AFIO,ENABLE);
 
 	/* config the NVIC(PD2) */
 	NVIC_Configuration();
 
 	/* EXTI line gpio config(PD2) */	
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;       
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;       
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPD;	 // 上拉输入
-  GPIO_Init(GPIOD, &GPIO_InitStructure);
+  GPIO_Init(GPIOE, &GPIO_InitStructure);
 
 	/* EXTI line(PD2) mode config */
-	GPIO_EXTILineConfig(GPIO_PortSourceGPIOD, GPIO_PinSource2); 
-  EXTI_InitStructure.EXTI_Line = EXTI_Line2;
+	GPIO_EXTILineConfig(GPIO_PortSourceGPIOE, GPIO_PinSource15); 
+  EXTI_InitStructure.EXTI_Line = EXTI_Line15;
   EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
   EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling; //下降沿中断
   EXTI_InitStructure.EXTI_LineCmd = ENABLE;

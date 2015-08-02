@@ -712,11 +712,6 @@
               <FilePath>..\User\stm32f10x_it.c</FilePath>
             </File>
             <File>
-              <FileName>usart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\usart.c</FilePath>
-            </File>
-            <File>
               <FileName>blooth.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\blooth.c</FilePath>
@@ -760,6 +755,11 @@
               <FileName>delay.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\delay.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\usart.c</FilePath>
             </File>
           </Files>
         </Group>

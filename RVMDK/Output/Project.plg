@@ -4,15 +4,15 @@
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
 C:\Users\youqilin\Desktop\Ã¤ÎÄ\STM32\USB_HID_STM32\RVMDK\Project.uvproj
-Project File Date:  07/21/2015
+Project File Date:  07/25/2015
 
 <h2>Output:</h2>
 Build target 'Project'
 assembling startup_stm32f10x_hd.s...
 compiling main.c...
-..\User\main.c(60): warning:  #550-D: variable "BrailleDots" was set but never used
-..\User\main.c(60): warning:  #550-D: variable "InPacket" was set but never used
+..\User\main.c(67): warning:  #177-D: variable "i" was declared but never referenced
+..\User\main.c(67): warning:  #177-D: variable "ret" was declared but never referenced
 linking...
-Program Size: Code=13048 RO-data=3472 RW-data=320 ZI-data=2144  
+Program Size: Code=14916 RO-data=2332 RW-data=340 ZI-data=1116  
 FromELF: creating hex file...
 ".\Output\Project.axf" - 0 Error(s), 2 Warning(s).

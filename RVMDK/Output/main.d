@@ -29,8 +29,8 @@
 .\Output\main.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
 .\Output\main.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\Output\main.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
-.\Output\main.o: ..\User\usart.h
 .\Output\main.o: C:\stm32\ARM\RV31\Inc\stdio.h
+.\Output\main.o: ..\User\usart.h
 .\Output\main.o: ..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_lib.h
 .\Output\main.o: ..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_type.h
 .\Output\main.o: ..\User\USB\inc\usb_conf.h
@@ -52,3 +52,5 @@
 .\Output\main.o: ..\User\keyscan.h
 .\Output\main.o: ..\User\exti.h
 .\Output\main.o: ..\User\PowerControl.h
+.\Output\main.o: ..\User\delay.h
+.\Output\main.o: ..\User\bmp.h
